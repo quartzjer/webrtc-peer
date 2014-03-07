@@ -1,0 +1,25 @@
+{
+  "name": "webrtc-peer",
+  "version": "0.0.1",
+  "description": "Browserify JS for a compatible WebRTC peer data connection wrapper",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quartzjer/webrtc-peer.git"
+  },
+  "keywords": [
+    "webrtc",
+    "browserify",
+    "datachannel"
+  ],
+  "author": {
+    "name": "Jeremie Miller",
+    "email": "jeremie@jabber.org",
+    "url": "http://jeremie.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quartzjer/webrtc-peer/issues"
+  },
+  "homepage": "https://github.com/quartzjer/webrtc-peer"
+}

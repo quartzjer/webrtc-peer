@@ -1,4 +1,6 @@
-webrtc-peer
+WebRTC Peer
 ===========
 
-Browserify JS for a compatible WebRTC peer connection wrapper
+Browserify JS for a compatible WebRTC peer data connection wrapper, thanks to code from [Nathan Vander Wilt](https://github.com/natevw).
+
+
