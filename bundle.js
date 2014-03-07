@@ -1,3 +1,57 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+// this uses forms in demo.html
+
+//var rtc = require("webrtc-peer");
+var rtc = require("./index.js");
+
+var signals = document.forms[0][0];
+document.forms[0][1].onclick = sigout;
+document.forms[0][2].onclick = sigin;
+
+var handler;
+var parts = [];
+function signal(sig)
+{
+  parts.push(sig);
+  signals.value = JSON.stringify(parts);
+}
+
+function connected()
+{
+  handler.send("WebRTC Peer Data Connected!");
+}
+
+function message(msg)
+{
+  signals.value = msg;
+}
+
+function pch(arg)
+{
+  if(handler) return;
+  handler = new rtc.peer(arg);
+  handler.DEBUG = true;
+  handler.onsignal = signal;  
+  handler.onconnection = connected;
+  handler.onmessage = message;
+  console.log("new handler",handler);
+}
+
+function sigout()
+{
+  pch({initiate:true, _self:"me", _peer:"you"});
+}
+
+function sigin()
+{
+  pch({_self:"me", _peer:"you"});
+  var parts = JSON.parse(signals.value);
+  parts.forEach(function(part){
+    handler.signal(part);
+  });
+}
+
+},{"./index.js":2}],2:[function(require,module,exports){
 // everything that's exported
 exports.peer = PeerConnectionHandler;
 exports.iceServers = [{
@@ -116,3 +170,5 @@ PeerConnectionHandler.prototype._setupChannel = function(evt) {
   window.dbgChannel = this._channel;
 };
 
+
+},{}]},{},[1])
