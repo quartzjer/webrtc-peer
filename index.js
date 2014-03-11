@@ -9,6 +9,8 @@ var RTCPeerConnection = window.mozRTCPeerConnection || window.RTCPeerConnection 
   RTCSessionDescription = window.mozRTCSessionDescription || window.RTCSessionDescription || window.webkitRTCSessionDescription,
   RTCIceCandidate = window.mozRTCIceCandidate || window.RTCIceCandidate || window.webkitRTCIceCandidate;
 
+exports.hasWebRTC = RTCPeerConnection ? true : false;
+
 function PeerConnectionHandler(opts) {
   if(!opts) opts = {};
   opts.reliable = true;

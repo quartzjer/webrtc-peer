@@ -1,6 +1,6 @@
 {
   "name": "webrtc-peer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Browserify JS for a compatible WebRTC peer data connection wrapper",
   "main": "index.js",
   "repository": {
