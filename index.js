@@ -1,8 +1,11 @@
 // everything that's exported
 exports.peer = PeerConnectionHandler;
-exports.iceServers = [{
-  "url": "stun:23.21.150.121"
-}];
+exports.iceServers = [
+  {url: 'stun:23.21.150.121'},
+  {url: 'stun:stun.services.mozilla.com'},
+  {url: 'stun:stun.l.google.com:19302'},
+  {url: 'stun:stun.anyfirewall.com:3478'}
+];
 
 // PeerConnectionHandler extracted from code in https://github.com/natevw/PeerPouch
 var RTCPeerConnection = window.mozRTCPeerConnection || window.RTCPeerConnection || window.webkitRTCPeerConnection,
